@@ -1,14 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function App() {
+  // Local state
+  const [readWidth, setReadWidth] = useState(0);
+
+  // Properties
+  const tabledWidthInPixels = 750;
+  const isMobile = readWidth < tabledWidthInPixels;
+
   // Methods
   useEffect(() => {
-    function handleResize() {
-      console.log("resized to: ", window.innerWidth, "x", window.innerHeight);
-    }
-
+    handleResize();
     window.addEventListener("resize", handleResize);
   }, []);
+
+  function handleResize() {
+    const result = window.innerWidth;
+
+    console.log("Width", result);
+    setReadWidth(result);
+  }
 
   return (
     <div className="App">
