@@ -17,7 +17,6 @@ export default function App() {
   function handleResize() {
     const result = window.innerWidth;
 
-    console.log("Width", result);
     setReadWidth(result);
   }
 
